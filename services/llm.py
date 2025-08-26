@@ -1,14 +1,10 @@
 # services/llm.py
 from __future__ import annotations
 from typing import Sequence, Tuple, TypedDict, cast
-from langchain_core.caches import BaseCache   # type: ignore[unused-import]
 from langchain_community.chat_models import ChatOllama
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import RunnableSerializable
-
-# resolve forward refs once at import time
-ChatOllama.model_rebuild()
 
 class PromptVars(TypedDict):
     prompt: str
@@ -16,7 +12,7 @@ class PromptVars(TypedDict):
 Chain = RunnableSerializable[PromptVars, str]
 
 class LLMService:
-    def __init__(self, model: str = "llama3.1:8b",
+    def __init__(self, model: str = "llama3.2-vision:latest",
                  base_url: str = "http://127.0.0.1:11434",
                  temperature: float = 0.2) -> None:
         messages: Sequence[Tuple[str, str]] = [
