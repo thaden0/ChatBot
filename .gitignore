@@ -6,7 +6,7 @@
 .langgraph_api/
 
 # Python
-.venv/
+venv/
 __pycache__/
 *.pyc
 *.pyo
