@@ -12,7 +12,7 @@ class PromptVars(TypedDict):
 Chain = RunnableSerializable[PromptVars, str]
 
 class LLMService:
-    def __init__(self, model: str = "llama3.2-vision:latest",
+    def __init__(self, model: str = "hf.co/mradermacher/0824-Qwen2.5-0.5B-Instructt-16bit-3E-GGUF:Q3_K_S",
                  base_url: str = "http://127.0.0.1:11434",
                  temperature: float = 0.2) -> None:
         messages: Sequence[Tuple[str, str]] = [
